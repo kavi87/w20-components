@@ -17,12 +17,6 @@ define([
         return {
             link: function (scope, element, attrs) {
 
-                attrs.$set('id', scope.id);
-                attrs.$set('formly-dynamic-name', scope.id);
-                attrs.$set('formly-custom-validation', scope.options.validators);
-                attrs.$set('aria-describedby', scope.options.id + '_description');
-                attrs.$set('ng-model', scope.model[scope.options.key]);
-
                 angular.forEach(scope.options.templateOptions, function (value, key) {
                     if (key === 'required') {
                         attrs.$set('ng-required', value);
