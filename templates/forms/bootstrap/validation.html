@@ -1,0 +1,30 @@
+<div data-ng-class="{ 'has-error' : options.validation.errorExistsAndShouldBeVisible,
+                      'form-group' : options.templateOptions.type !== 'checkbox',
+                      'checkbox': options.templateOptions.type === 'checkbox' }">
+
+    <span data-ng-if="options.templateOptions.type !== 'checkbox'">
+        <label for="{{ id }}"> {{ options.templateOptions.label }} {{ options.templateOptions.required ? "*" : "" }} </label>
+        <formly-transclude></formly-transclude>
+    </span>
+
+    <span data-ng-if="options.templateOptions.type === 'checkbox'">
+        <label for="{{ id }}">
+            <formly-transclude></formly-transclude> {{ options.templateOptions.label }} {{ options.templateOptions.required ? "*" : "" }}
+        </label>
+    </span>
+
+    <div class="validation"
+         data-ng-if="options.validation.errorExistsAndShouldBeVisible"
+         data-ng-messages="options.formControl.$error">
+
+        <div data-ng-message="required">This field is required</div>
+        <div data-ng-message="minlength">Too short</div>
+        <div data-ng-message="maxlength">Too long</div>
+        <div data-ng-message="email">Invalid email address</div>
+
+        <div data-ng-message="{{ name }}"
+             data-ng-repeat="(name, message) in ::options.validation.messages">
+            {{message(options.formControl.$viewValue, options.formControl.$modelValue, this)}}
+        </div>
+    </div>
+</div>

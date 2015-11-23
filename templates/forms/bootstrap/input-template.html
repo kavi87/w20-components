@@ -1,0 +1,10 @@
+<input type="{{ options.templateOptions.type || 'text'}}"
+       data-ng-class="{ 'form-control': options.templateOptions.type !== 'checkbox' }"
+       id="{{ id }}"
+       data-formly-dynamic-name="id"
+       data-formly-custom-validation="options.validators"
+       placeholder="{{options.templateOptions.placeholder}}"
+       aria-describedby="{{id}}_description"
+       data-ng-required="options.templateOptions.required"
+       data-ng-disabled="options.templateOptions.disabled"
+       data-ng-model="model[options.key]">
