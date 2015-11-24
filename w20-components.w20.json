@@ -34,7 +34,8 @@
         "map": {
             "{angular-formly}/formly": {
                 "angular": "{angular}/angular",
-                "api-check": "{api-check}/api-check"
+                "api-check": "{api-check}/api-check",
+                "angular-filter": "{angular-filter}/angular-filter"
             }
         },
         "paths": {
@@ -43,7 +44,9 @@
 
             "{angular-messages}": "${components-path:bower_components}/angular-messages",
             "{angular-formly}": "${components-path:bower_components}/angular-formly/dist",
-            "{api-check}": "${components-path:bower_components}/api-check/dist"
+            "{api-check}": "${components-path:bower_components}/api-check/dist",
+            "{angular-filter}": "${components-path:bower_components}/angular-filter/dist"
+
         },
         "shim" : {
             "{angular-ui-grid}/ui-grid" : [
@@ -57,9 +60,13 @@
             "{angular-messages}/angular-messages":[
                 "{angular}/angular"
             ],
+            "{angular-filter}/angular-filter" : [
+                "{angular}/angular"
+            ],
             "{angular-formly}/formly": [
                 "{angular}/angular",
-                "{api-check}/api-check"
+                "{api-check}/api-check",
+                "{angular-filter}/angular-filter"
             ]
         }
     },

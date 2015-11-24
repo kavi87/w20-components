@@ -1,28 +1,26 @@
 define([
     '{angular}/angular',
     '{angular-formly}/formly',
+    '{angular-filter}/angular-filter',
     '[text]!{w20-components}/templates/forms/bootstrap/input.html',
     '[text]!{w20-components}/templates/forms/bootstrap/textarea.html',
     '[text]!{w20-components}/templates/forms/bootstrap/box.html',
     '[text]!{w20-components}/templates/forms/bootstrap/validation.html',
+    '[text]!{w20-components}/templates/forms/bootstrap/select.html',
 
     '{angular-messages}/angular-messages'
 
-], function (angular, formly, inputTemplate, textAreaTemplate, boxTemplate, validationTemplate) {
+], function (angular, formly, filter, inputTemplate, textAreaTemplate, boxTemplate, validationTemplate, selectTemplate) {
     'use strict';
 
-    var module = angular.module('w20ComponentsForms', ['formly', 'ngMessages']);
+    var module = angular.module('w20ComponentsForms', ['formly', 'angular.filter', 'ngMessages']);
 
     module.directive('w20FormAttributes', [function () {
         return {
             link: function (scope, element, attrs) {
-
                 angular.forEach(scope.options.templateOptions, function (value, key) {
-                    if (key === 'required') {
-                        attrs.$set('ng-required', value);
-                    } else if (key === 'disabled') {
-                        attrs.$set('ng-disabled', value);
-                    } else {
+                    // loop through each template option except required and disabled
+                    if (key !== 'required' && key !== 'disabled') {
                         attrs.$set(key, value);
                     }
                 });
@@ -47,6 +45,10 @@ define([
                 template: inputTemplate
             },
             {
+                name: 'number',
+                template: inputTemplate
+            },
+            {
                 name: 'checkbox',
                 template: boxTemplate
             },
@@ -57,6 +59,10 @@ define([
             {
                 name: 'textarea',
                 template: textAreaTemplate
+            },
+            {
+                name: 'select',
+                template: selectTemplate
             }
         ];
 

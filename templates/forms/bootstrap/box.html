@@ -1,8 +1,8 @@
-<input type="{{ options.type || 'text'}}"
+<input data-w20-form-attributes
+       type="{{ options.type || 'text'}}"
        id="{{ id }}"
        data-formly-dynamic-name="id"
        data-formly-custom-validation="options.validators"
-       placeholder="{{options.templateOptions.placeholder}}"
        aria-describedby="{{id}}_description"
        data-ng-required="options.templateOptions.required"
        data-ng-disabled="options.templateOptions.disabled"
