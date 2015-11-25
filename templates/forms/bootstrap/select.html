@@ -4,7 +4,7 @@
         data-ng-model="model[options.key]"
         data-formly-dynamic-name="id"
         data-formly-custom-validation="options.validators">
-    <optgroup data-ng-repeat="(key, val) in options.templateOptions.options | groupBy: 'group'" label="{{ key !== 'undefined' ? key : '' }}">
-        <option data-ng-repeat="opt in val" value="{{opt.value}}" data-ng-selected="opt.selected">{{opt.name}}</option>
+    <optgroup ng-repeat="(key, val) in options.templateOptions.options" label="{{ key !== 'undefined' ? key : '' }}">
+        <option data-ng-repeat="opt in val" value="{{ opt.value }}" data-ng-selected="opt.selected">{{opt.name}}</option>
     </optgroup>
 </select>
